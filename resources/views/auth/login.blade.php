@@ -41,6 +41,26 @@
                         @enderror
                     </div>
 
+                     <!-- rol -->
+                     <div class="form-group mt-3">
+                        <label for="rol">Rol</label>
+                        <select name="rol" id="rol" class="form-control @error('rol') is-invalid @enderror" required>
+                            <option value="">-- Selecciona tu rol --</option>
+                            <option value="estudiante" {{ old('rol') == 'estudiante' ? 'selected' : '' }}>Estudiante</option>
+                            <option value="docente" {{ old('rol') == 'docente' ? 'selected' : '' }}>Docente</option>
+                            <option value="secretaria" {{ old('rol') == 'secretaria' ? 'selected' : '' }}>Secretaria</option>
+                            <option value="rectora" {{ old('rol') == 'rectora' ? 'selected' : '' }}>Rectora</option>
+                        </select>
+
+                        @error('rol')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+                    
+
                     <!-- Enlace "Olvidé contraseña" -->
                 <div class="mb-4 text-end">
                     <a href="{{ route('password.request') }}" class="text-decoration-none">
